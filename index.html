@@ -10,32 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ==================== LOADER ==================== -->
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-puppet">🧦</div>
-            <div class="loader-text">LOADING...</div>
-            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-        </div>
-    </div>
-
-    <!-- ==================== CURSOR ==================== -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-dot"></div>
 
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-bracket">[</span>
-                SOCK PUPPETS
-                <span class="logo-bracket">]</span>
-            </a>
+            <a href="#" class="nav-logo">SOCK PUPPETS</a>
             <div class="nav-links">
-                <a href="#home" class="nav-link active">HOME</a>
+                <a href="#home" class="nav-link">HOME</a>
                 <a href="#collection" class="nav-link">COLLECTION</a>
-                <a href="#manifesto" class="nav-link">MANIFESTO</a>
-                <a href="#roadmap" class="nav-link">ROADMAP</a>
             </div>
             <div class="nav-socials">
                 <a href="#" target="_blank" class="social-link" aria-label="Twitter/X">
@@ -44,9 +26,7 @@
                 <a href="#" target="_blank" class="social-link" aria-label="OpenSea">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.629 0 12 0ZM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 0 1 .187.014c.52 1.169.972 2.623.76 3.528-.088.372-.328.878-.614 1.342a4.2 4.2 0 0 1-.2.345.112.112 0 0 1-.093.049H6.012a.107.107 0 0 1-.091-.163Zm13.914 1.68a.109.109 0 0 1-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.556 4.556 0 0 1-4.553-4.556v-.082c0-.06.049-.107.108-.107h2.702c.068 0 .118.063.112.131-.033.312.024.632.167.936a1.98 1.98 0 0 0 1.786 1.103h2.8v-2.035h-2.77a.11.11 0 0 1-.088-.174l.065-.092c.146-.21.356-.483.567-.792.146-.214.287-.442.414-.67.068-.123.128-.248.18-.372.087-.214.174-.442.236-.67a8.66 8.66 0 0 0 .168-.75 7.624 7.624 0 0 0 .06-.67c.024-.224.03-.46.018-.684a9.99 9.99 0 0 0-.048-.53 8.382 8.382 0 0 0-.09-.565l-.012-.068c-.03-.168-.066-.33-.108-.497a10.505 10.505 0 0 0-.39-1.18 5.397 5.397 0 0 0-.186-.443l-.126-.293c-.054-.123-.108-.234-.16-.345l-.258-.534.18-.094h.015l1.35-.558 1.418.42c.33.098.66.214.985.348.162.066.33.15.497.241v1.73l.378.212c.144.087.282.186.414.297.228.193.486.432.72.706.16.186.31.384.451.593.168.248.354.52.504.804.066.12.126.247.186.372.198.411.372.84.492 1.262.036.123.06.248.078.372.048.254.072.521.06.788a3.382 3.382 0 0 1-.15.793 4.151 4.151 0 0 1-.216.596c-.09.2-.186.4-.3.589a4.58 4.58 0 0 1-.312.453 6.42 6.42 0 0 1-.258.326c-.105.138-.222.27-.339.389-.066.072-.138.15-.216.216l-.354.33a.112.112 0 0 1-.073.026H14.63v2.035h2.128c.48 0 .936-.178 1.32-.504.132-.114.862-.744 1.728-1.692a.108.108 0 0 1 .072-.04l3.012-.865a.108.108 0 0 1 .139.103v.003Z"/></svg>
                 </a>
-                <a href="#" target="_blank" class="social-link" aria-label="Discord">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286ZM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-                </a>
+
             </div>
             <button class="nav-menu-btn" aria-label="Menu">
                 <span></span>
@@ -61,19 +41,16 @@
         <div class="mobile-menu-links">
             <a href="#home" class="mobile-link">HOME</a>
             <a href="#collection" class="mobile-link">COLLECTION</a>
-            <a href="#manifesto" class="mobile-link">MANIFESTO</a>
-            <a href="#roadmap" class="mobile-link">ROADMAP</a>
         </div>
         <div class="mobile-menu-socials">
             <a href="#" target="_blank">X (TWITTER)</a>
             <a href="#" target="_blank">OPENSEA</a>
-            <a href="#" target="_blank">DISCORD</a>
         </div>
     </div>
 
     <!-- ==================== HERO SECTION ==================== -->
     <section id="home" class="hero">
-        <div class="hero-bg-grid"></div>
+        <div class="hero-bg-dots"></div>
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-dot"></span>
@@ -114,13 +91,13 @@
         </div>
         <div class="hero-images">
             <div class="hero-image-card card-1">
-                <img src="img/puppet1.png" alt="Mime Sock Puppet" loading="eager">
+                <img src="img/photo_2026-03-19_21-34-29.jpg" alt="The Mime Sock Puppet" loading="eager">
             </div>
             <div class="hero-image-card card-2">
-                <img src="img/puppet2.png" alt="Space Sock Puppet" loading="eager">
+                <img src="img/photo_2026-03-19_21-34-35.jpg" alt="The Alien Sock Puppet" loading="eager">
             </div>
             <div class="hero-image-card card-3">
-                <img src="img/puppet3.png" alt="Rainbow Sock Puppet" loading="eager">
+                <img src="img/photo_2026-03-19_21-34-40.jpg" alt="The Glitch King Sock Puppet" loading="eager">
             </div>
         </div>
     </section>
@@ -130,38 +107,45 @@
         <div class="marquee">
             <div class="marquee-content">
                 <span>HAND STITCHED PIXELS</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>NO AI JUST VIBES</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>SOCK PUPPETS NFT</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>EVERY PUPPET IS UNIQUE</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>PIXEL ART FOREVER</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>WE ARE THE PUPPETS</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>HAND STITCHED PIXELS</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>NO AI JUST VIBES</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>SOCK PUPPETS NFT</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>EVERY PUPPET IS UNIQUE</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>PIXEL ART FOREVER</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
                 <span>WE ARE THE PUPPETS</span>
-                <span class="marquee-dot">◆</span>
+                <span class="marquee-dot">★</span>
             </div>
         </div>
     </div>
+
+    <!-- ==================== GIF SHOWCASE ==================== -->
+    <section class="gif-showcase">
+        <div class="gif-showcase-inner">
+            <div class="gif-showcase-label">LIVE PREVIEW</div>
+            <img src="img/gif2.gif" alt="Sock Puppets Animated">
+        </div>
+    </section>
 
     <!-- ==================== COLLECTION SECTION ==================== -->
     <section id="collection" class="collection">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">// 001</span>
                 <h2 class="section-title">THE COLLECTION</h2>
                 <p class="section-desc">Each Sock Puppet is a 1/1 hand-drawn pixel art masterpiece. No two are alike.</p>
             </div>
@@ -169,7 +153,7 @@
                 <div class="nft-card" data-tilt>
                     <div class="nft-card-inner">
                         <div class="nft-image">
-                            <img src="img/puppet1.png" alt="The Mime — Sock Puppet #001">
+                            <img src="img/photo_2026-03-19_21-34-29.jpg" alt="The Mime — Sock Puppet #001">
                             <div class="nft-overlay">
                                 <span class="nft-view">VIEW</span>
                             </div>
@@ -182,7 +166,7 @@
                             <div class="nft-traits">
                                 <span class="trait">Background: Red Curtain</span>
                                 <span class="trait">Pattern: Stripes</span>
-                                <span class="trait">Special: Red Nose</span>
+                                <span class="trait">Special: Box Head</span>
                             </div>
                         </div>
                     </div>
@@ -190,20 +174,20 @@
                 <div class="nft-card" data-tilt>
                     <div class="nft-card-inner">
                         <div class="nft-image">
-                            <img src="img/puppet2.png" alt="The Stargazer — Sock Puppet #002">
+                            <img src="img/photo_2026-03-19_21-34-35.jpg" alt="The Alien — Sock Puppet #002">
                             <div class="nft-overlay">
                                 <span class="nft-view">VIEW</span>
                             </div>
                         </div>
                         <div class="nft-info">
                             <div class="nft-header">
-                                <span class="nft-name">THE STARGAZER</span>
+                                <span class="nft-name">THE ALIEN</span>
                                 <span class="nft-id">#002</span>
                             </div>
                             <div class="nft-traits">
-                                <span class="trait">Background: Starry Night</span>
-                                <span class="trait">Pattern: Sunset Stripes</span>
-                                <span class="trait">Special: Cyclops Eye</span>
+                                <span class="trait">Background: Checkered</span>
+                                <span class="trait">Pattern: Green Skin</span>
+                                <span class="trait">Special: Antennae</span>
                             </div>
                         </div>
                     </div>
@@ -211,20 +195,20 @@
                 <div class="nft-card" data-tilt>
                     <div class="nft-card-inner">
                         <div class="nft-image">
-                            <img src="img/puppet3.png" alt="The Dreamer — Sock Puppet #003">
+                            <img src="img/photo_2026-03-19_21-34-40.jpg" alt="The Glitch King — Sock Puppet #003">
                             <div class="nft-overlay">
                                 <span class="nft-view">VIEW</span>
                             </div>
                         </div>
                         <div class="nft-info">
                             <div class="nft-header">
-                                <span class="nft-name">THE DREAMER</span>
+                                <span class="nft-name">THE GLITCH KING</span>
                                 <span class="nft-id">#003</span>
                             </div>
                             <div class="nft-traits">
-                                <span class="trait">Background: Rainbow</span>
-                                <span class="trait">Pattern: Polka Dots</span>
-                                <span class="trait">Special: Cat Ears</span>
+                                <span class="trait">Background: Glitch</span>
+                                <span class="trait">Pattern: Neon</span>
+                                <span class="trait">Special: Crown</span>
                             </div>
                         </div>
                     </div>
@@ -239,165 +223,17 @@
         </div>
     </section>
 
-    <!-- ==================== MANIFESTO SECTION ==================== -->
-    <section id="manifesto" class="manifesto">
-        <div class="manifesto-bg"></div>
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">// 002</span>
-                <h2 class="section-title">THE MANIFESTO</h2>
-            </div>
-            <div class="manifesto-content">
-                <div class="manifesto-text">
-                    <p class="manifesto-lead">
-                        <span class="highlight">SOCK PUPPETS</span> is a 1/1 hand-drawn pixel art NFT collection 
-                        born from imagination, nostalgia, and the unshakable belief that 
-                        <span class="highlight">real art matters.</span>
-                    </p>
-                    <p>
-                        In a world drowning in AI-generated noise, we chose to go back to basics. 
-                        Pixel by pixel. Stitch by stitch. Every Sock Puppet is crafted by hand — 
-                        each one a unique character with its own story, personality, and soul.
-                    </p>
-                    <p>
-                        From the mime performing under crimson curtains to the stargazer lost in 
-                        the cosmos — these aren't just JPEGs. They're portraits of characters 
-                        who refuse to be mass-produced.
-                    </p>
-                    <div class="manifesto-quote">
-                        <span class="quote-mark">"</span>
-                        <blockquote>
-                            100% Hand-drawn pixels.<br>
-                            0% AI generated.<br>
-                            Pure creative soul.
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="manifesto-visual">
-                    <div class="pixel-grid">
-                        <div class="pixel-cell" style="--delay: 0"></div>
-                        <div class="pixel-cell" style="--delay: 1"></div>
-                        <div class="pixel-cell" style="--delay: 2"></div>
-                        <div class="pixel-cell" style="--delay: 3"></div>
-                        <div class="pixel-cell" style="--delay: 4"></div>
-                        <div class="pixel-cell" style="--delay: 5"></div>
-                        <div class="pixel-cell" style="--delay: 6"></div>
-                        <div class="pixel-cell" style="--delay: 7"></div>
-                        <div class="pixel-cell" style="--delay: 8"></div>
-                        <div class="pixel-cell" style="--delay: 9"></div>
-                        <div class="pixel-cell" style="--delay: 10"></div>
-                        <div class="pixel-cell" style="--delay: 11"></div>
-                        <div class="pixel-cell" style="--delay: 12"></div>
-                        <div class="pixel-cell" style="--delay: 13"></div>
-                        <div class="pixel-cell" style="--delay: 14"></div>
-                        <div class="pixel-cell" style="--delay: 15"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== MARQUEE 2 ==================== -->
-    <div class="marquee-section marquee-reverse">
-        <div class="marquee">
-            <div class="marquee-content marquee-reverse-anim">
-                <span>DIAMOND HANDS</span>
-                <span class="marquee-dot">◆</span>
-                <span>PIXEL PERFECT</span>
-                <span class="marquee-dot">◆</span>
-                <span>STAY WEIRD</span>
-                <span class="marquee-dot">◆</span>
-                <span>SOCK PUPPET GANG</span>
-                <span class="marquee-dot">◆</span>
-                <span>WEB3 NATIVE</span>
-                <span class="marquee-dot">◆</span>
-                <span>BORN TO STAND OUT</span>
-                <span class="marquee-dot">◆</span>
-                <span>DIAMOND HANDS</span>
-                <span class="marquee-dot">◆</span>
-                <span>PIXEL PERFECT</span>
-                <span class="marquee-dot">◆</span>
-                <span>STAY WEIRD</span>
-                <span class="marquee-dot">◆</span>
-                <span>SOCK PUPPET GANG</span>
-                <span class="marquee-dot">◆</span>
-                <span>WEB3 NATIVE</span>
-                <span class="marquee-dot">◆</span>
-                <span>BORN TO STAND OUT</span>
-                <span class="marquee-dot">◆</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== ROADMAP SECTION ==================== -->
-    <section id="roadmap" class="roadmap">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">// 003</span>
-                <h2 class="section-title">ROADMAP</h2>
-                <p class="section-desc">The journey of the Sock Puppets. No empty promises — just real milestones.</p>
-            </div>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">
-                        <span class="marker-phase">01</span>
-                    </div>
-                    <div class="roadmap-content">
-                        <h3>GENESIS DROP</h3>
-                        <p>First wave of hand-drawn Sock Puppets released on OpenSea. Building the community from day one.</p>
-                        <span class="roadmap-status status-active">IN PROGRESS</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">
-                        <span class="marker-phase">02</span>
-                    </div>
-                    <div class="roadmap-content">
-                        <h3>COMMUNITY EXPANSION</h3>
-                        <p>Discord launch, holder events, and exclusive behind-the-scenes content on the creative process.</p>
-                        <span class="roadmap-status">UPCOMING</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">
-                        <span class="marker-phase">03</span>
-                    </div>
-                    <div class="roadmap-content">
-                        <h3>PUPPET LORE</h3>
-                        <p>Each Sock Puppet gets a backstory. Lore drops, animated shorts, and interactive storytelling.</p>
-                        <span class="roadmap-status">UPCOMING</span>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">
-                        <span class="marker-phase">04</span>
-                    </div>
-                    <div class="roadmap-content">
-                        <h3>THE PUPPET SHOW</h3>
-                        <p>Physical merch, gallery exhibitions, and the ultimate puppet show — IRL meets Web3.</p>
-                        <span class="roadmap-status">UPCOMING</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="footer-logo">
-                        <span class="logo-bracket">[</span>
-                        SOCK PUPPETS
-                        <span class="logo-bracket">]</span>
-                    </span>
+                    <span class="footer-logo">SOCK PUPPETS</span>
                     <p class="footer-tagline">Hand-stitched pixels. Unmatched soul.</p>
                 </div>
                 <div class="footer-links">
                     <a href="#" target="_blank" class="footer-social">X (TWITTER)</a>
                     <a href="#" target="_blank" class="footer-social">OPENSEA</a>
-                    <a href="#" target="_blank" class="footer-social">DISCORD</a>
                 </div>
             </div>
             <div class="footer-bottom">
