@@ -17,7 +17,6 @@
             <a href="#" class="nav-logo">SOCK PUPPETS</a>
             <div class="nav-links">
                 <a href="#home" class="nav-link">HOME</a>
-                <a href="#puppet-maker" class="nav-link">PUPPET MAKER</a>
                 <a href="#collection" class="nav-link">COLLECTION</a>
             </div>
             <div class="nav-socials">
@@ -41,7 +40,6 @@
     <div class="mobile-menu">
         <div class="mobile-menu-links">
             <a href="#home" class="mobile-link">HOME</a>
-            <a href="#puppet-maker" class="mobile-link">PUPPET MAKER</a>
             <a href="#collection" class="mobile-link">COLLECTION</a>
         </div>
         <div class="mobile-menu-socials">
@@ -141,93 +139,6 @@
         <div class="gif-showcase-inner">
             <div class="gif-showcase-label">LIVE PREVIEW</div>
             <img src="img/gif2.gif" alt="Sock Puppets Animated">
-        </div>
-    </section>
-
-    <!-- ==================== PUPPET MAKER ==================== -->
-    <section id="puppet-maker" class="puppet-maker">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">PUPPET MAKER</h2>
-                <p class="section-desc">Pick your puppet, dress it up, make it yours. Download your creation!</p>
-            </div>
-            <div class="pm-workspace">
-                <!-- Left: Puppet Selector -->
-                <div class="pm-selector">
-                    <h3 class="pm-panel-title">CHOOSE PUPPET</h3>
-                    <div class="pm-puppet-options">
-                        <button class="pm-puppet-btn active" data-puppet="img/photo_2026-03-19_21-34-29.jpg">
-                            <img src="img/photo_2026-03-19_21-34-29.jpg" alt="The Mime">
-                            <span>MIME</span>
-                        </button>
-                        <button class="pm-puppet-btn" data-puppet="img/photo_2026-03-19_21-34-35.jpg">
-                            <img src="img/photo_2026-03-19_21-34-35.jpg" alt="The Alien">
-                            <span>ALIEN</span>
-                        </button>
-                        <button class="pm-puppet-btn" data-puppet="img/photo_2026-03-19_21-34-40.jpg">
-                            <img src="img/photo_2026-03-19_21-34-40.jpg" alt="Glitch King">
-                            <span>GLITCH</span>
-                        </button>
-                    </div>
-
-                    <h3 class="pm-panel-title">ACCESSORIES</h3>
-                    <div class="pm-accessories">
-                        <button class="pm-acc-btn" data-acc="crown" title="Crown">👑</button>
-                        <button class="pm-acc-btn" data-acc="tophat" title="Top Hat">🎩</button>
-                        <button class="pm-acc-btn" data-acc="cap" title="Cap">🧢</button>
-                        <button class="pm-acc-btn" data-acc="glasses" title="Glasses">🕶️</button>
-                        <button class="pm-acc-btn" data-acc="monocle" title="Monocle">🧐</button>
-                        <button class="pm-acc-btn" data-acc="bowtie" title="Bow Tie">🎀</button>
-                        <button class="pm-acc-btn" data-acc="star" title="Star">⭐</button>
-                        <button class="pm-acc-btn" data-acc="fire" title="Fire">🔥</button>
-                        <button class="pm-acc-btn" data-acc="lightning" title="Lightning">⚡</button>
-                        <button class="pm-acc-btn" data-acc="heart" title="Heart">❤️</button>
-                        <button class="pm-acc-btn" data-acc="diamond" title="Diamond">💎</button>
-                        <button class="pm-acc-btn" data-acc="rocket" title="Rocket">🚀</button>
-                    </div>
-
-                    <h3 class="pm-panel-title">BACKGROUND</h3>
-                    <div class="pm-backgrounds">
-                        <button class="pm-bg-btn active" data-bg="#0d0d0d" style="background:#0d0d0d;"></button>
-                        <button class="pm-bg-btn" data-bg="#FF003C" style="background:#FF003C;"></button>
-                        <button class="pm-bg-btn" data-bg="#FF00FF" style="background:#FF00FF;"></button>
-                        <button class="pm-bg-btn" data-bg="#00E5FF" style="background:#00E5FF;"></button>
-                        <button class="pm-bg-btn" data-bg="#39FF14" style="background:#39FF14;"></button>
-                        <button class="pm-bg-btn" data-bg="#FFE500" style="background:#FFE500;"></button>
-                        <button class="pm-bg-btn" data-bg="#4D4DFF" style="background:#4D4DFF;"></button>
-                        <button class="pm-bg-btn" data-bg="linear-gradient(135deg,#FF00FF,#00E5FF)" style="background:linear-gradient(135deg,#FF00FF,#00E5FF);"></button>
-                    </div>
-
-                    <h3 class="pm-panel-title">EFFECTS</h3>
-                    <div class="pm-effects">
-                        <button class="pm-fx-btn active" data-fx="none">NONE</button>
-                        <button class="pm-fx-btn" data-fx="invert">INVERT</button>
-                        <button class="pm-fx-btn" data-fx="sepia">SEPIA</button>
-                        <button class="pm-fx-btn" data-fx="hue">HUE SHIFT</button>
-                        <button class="pm-fx-btn" data-fx="saturate">ULTRA SAT</button>
-                        <button class="pm-fx-btn" data-fx="contrast">HIGH CON</button>
-                        <button class="pm-fx-btn" data-fx="grayscale">B&W</button>
-                        <button class="pm-fx-btn" data-fx="blur">BLUR</button>
-                    </div>
-                </div>
-
-                <!-- Center: Canvas Preview -->
-                <div class="pm-preview">
-                    <div class="pm-canvas-wrap" id="pmCanvas">
-                        <img class="pm-base-img" src="img/photo_2026-03-19_21-34-29.jpg" alt="Puppet Base" crossorigin="anonymous">
-                        <div class="pm-accessories-layer" id="pmAccessories"></div>
-                    </div>
-                    <div class="pm-actions">
-                        <button class="btn btn-primary pm-download" id="pmDownload">
-                            <span>DOWNLOAD</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                        </button>
-                        <button class="btn btn-secondary pm-reset" id="pmReset">
-                            <span>RESET</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
