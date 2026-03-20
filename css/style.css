@@ -544,6 +544,128 @@ img { max-width: 100%; height: auto; display: block; }
     to { transform: translateX(-50%); }
 }
 
+/* ==================== WAITLIST ==================== */
+.waitlist {
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.06) 0%, transparent 60%),
+        var(--bg-primary);
+}
+
+.waitlist-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.waitlist-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--pop-magenta);
+    background: rgba(255, 0, 255, 0.1);
+    border: 2px solid var(--pop-magenta);
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.waitlist-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    letter-spacing: 2px;
+    color: var(--pop-yellow);
+    text-shadow: 3px 3px 0 var(--pop-magenta);
+    margin-bottom: 0.8rem;
+}
+
+.waitlist-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.waitlist-form {
+    display: flex;
+    gap: 0;
+    border: 3px solid var(--pop-yellow);
+    background: var(--bg-secondary);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.waitlist-form:focus-within {
+    border-color: var(--pop-cyan);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.waitlist-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.9rem 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.waitlist-input::placeholder {
+    color: #555;
+    letter-spacing: 1px;
+}
+
+.waitlist-btn {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    background: var(--pop-yellow);
+    color: #000;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.waitlist-btn:hover {
+    background: var(--pop-green);
+}
+
+.waitlist-btn svg {
+    stroke: #000;
+}
+
+.waitlist-status {
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: 0.4rem;
+    letter-spacing: 2px;
+    min-height: 1.4rem;
+}
+
+.waitlist-status.success {
+    color: var(--pop-green);
+}
+
+.waitlist-status.error {
+    color: var(--pop-red);
+}
+
+.waitlist-count {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
 /* ==================== FOOTER ==================== */
 .footer {
     border-top: 3px solid var(--pop-magenta);

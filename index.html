@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://script.google.com">
+    <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -132,6 +134,27 @@
     <section class="gif-showcase">
         <div class="gif-showcase-inner">
             <img src="img/gif2.gif" alt="Sock Puppets Animated">
+        </div>
+    </section>
+
+    <!-- ==================== WAITLIST ==================== -->
+    <section class="waitlist" id="waitlist">
+        <div class="waitlist-container">
+            <div class="waitlist-badge">
+                <span class="badge-dot"></span>
+                EARLY ACCESS
+            </div>
+            <h2 class="waitlist-title">JOIN THE WAITLIST</h2>
+            <p class="waitlist-desc">Drop your wallet address to get early access to the mint. Limited spots available.</p>
+            <form class="waitlist-form" id="waitlistForm">
+                <input type="text" class="waitlist-input" id="walletInput" placeholder="0x... your wallet address" autocomplete="off" spellcheck="false" required>
+                <button type="submit" class="waitlist-btn">
+                    <span>JOIN</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            <p class="waitlist-status" id="waitlistStatus"></p>
+            <p class="waitlist-count" id="waitlistCount"></p>
         </div>
     </section>
 

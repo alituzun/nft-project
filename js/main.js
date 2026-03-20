@@ -111,6 +111,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ==================== WAITLIST ====================
+    const WAITLIST_URL = 'https://script.google.com/macros/s/AKfycbwzsj3GfgoFrrnoXGWts4-v6bem7jgSyjLTGN6bSc7gK3FhXk3m1rBOhOn5ctQxzcqzJA/exec';
+    const waitlistForm = document.getElementById('waitlistForm');
+    const walletInput = document.getElementById('walletInput');
+    const waitlistStatus = document.getElementById('waitlistStatus');
+    const waitlistCount = document.getElementById('waitlistCount');
+
+    // Fetch current count on load
+    fetch(WAITLIST_URL)
+      .then(r => r.json())
+      .then(data => {
+          if (data.count > 0) {
+              waitlistCount.textContent = data.count + ' wallet' + (data.count > 1 ? 's' : '') + ' on the list';
+          }
+      })
+      .catch(() => {});
+
+    if (waitlistForm) {
+        waitlistForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const wallet = walletInput.value.trim();
+
+            const ethRegex = /^0x[a-fA-F0-9]{40}$/;
+            const solRegex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+
+            if (!ethRegex.test(wallet) && !solRegex.test(wallet)) {
+                waitlistStatus.textContent = 'INVALID WALLET ADDRESS';
+                waitlistStatus.className = 'waitlist-status error';
+                return;
+            }
+
+            const btn = waitlistForm.querySelector('.waitlist-btn');
+
+            // Optimistic UI — show success instantly, save in background
+            waitlistStatus.textContent = "YOU'RE IN! WELCOME TO THE WAITLIST \uD83C\uDF89";
+            waitlistStatus.className = 'waitlist-status success';
+            walletInput.value = '';
+
+            fetch(WAITLIST_URL, {
+                method: 'POST',
+                body: JSON.stringify({ wallet: wallet })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    if (data.count > 0) {
+                        waitlistCount.textContent = data.count + ' wallet' + (data.count > 1 ? 's' : '') + ' on the list';
+                    }
+                } else {
+                    // Server rejected (duplicate etc.) — correct the optimistic message
+                    waitlistStatus.textContent = (data.message || 'ERROR').toUpperCase();
+                    waitlistStatus.className = 'waitlist-status error';
+                }
+            })
+            .catch(() => {
+                waitlistStatus.textContent = 'NETWORK ERROR \u2014 TRY AGAIN';
+                waitlistStatus.className = 'waitlist-status error';
+            });
+        });
+    }
+
     // Init counters on load
     animateCounters();
 });
