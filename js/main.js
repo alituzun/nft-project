@@ -116,17 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const waitlistForm = document.getElementById('waitlistForm');
     const walletInput = document.getElementById('walletInput');
     const waitlistStatus = document.getElementById('waitlistStatus');
-    const waitlistCount = document.getElementById('waitlistCount');
 
-    // Fetch current count on load
-    fetch(WAITLIST_URL)
-      .then(r => r.json())
-      .then(data => {
-          if (data.count > 0) {
-              waitlistCount.textContent = data.count + ' wallet' + (data.count > 1 ? 's' : '') + ' on the list';
-          }
-      })
-      .catch(() => {});
+    // Fetch current count on load (hidden from UI)
+    fetch(WAITLIST_URL).catch(() => {});
 
     if (waitlistForm) {
         waitlistForm.addEventListener('submit', (e) => {
@@ -156,9 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(r => r.json())
             .then(data => {
                 if (data.success) {
-                    if (data.count > 0) {
-                        waitlistCount.textContent = data.count + ' wallet' + (data.count > 1 ? 's' : '') + ' on the list';
-                    }
+                    // saved successfully
                 } else {
                     // Server rejected (duplicate etc.) — correct the optimistic message
                     waitlistStatus.textContent = (data.message || 'ERROR').toUpperCase();
