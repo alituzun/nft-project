@@ -114,43 +114,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==================== WAITLIST ====================
     const WAITLIST_URL = 'https://script.google.com/macros/s/AKfycbwzsj3GfgoFrrnoXGWts4-v6bem7jgSyjLTGN6bSc7gK3FhXk3m1rBOhOn5ctQxzcqzJA/exec';
     const waitlistForm = document.getElementById('waitlistForm');
+    const twitterInput = document.getElementById('twitterInput');
+    const commentInput = document.getElementById('commentInput');
     const walletInput = document.getElementById('walletInput');
     const waitlistStatus = document.getElementById('waitlistStatus');
-
-    // Fetch current count on load (hidden from UI)
-    fetch(WAITLIST_URL).catch(() => {});
 
     if (waitlistForm) {
         waitlistForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            const twitter = twitterInput.value.trim();
+            const comment = commentInput.value.trim();
             const wallet = walletInput.value.trim();
 
-            const ethRegex = /^0x[a-fA-F0-9]{40}$/;
-            const solRegex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
-
-            if (!ethRegex.test(wallet) && !solRegex.test(wallet)) {
-                waitlistStatus.textContent = 'INVALID WALLET ADDRESS';
+            // Twitter validation: must start with @
+            if (!twitter || !twitter.startsWith('@') || twitter.length < 2) {
+                waitlistStatus.textContent = 'ENTER A VALID TWITTER HANDLE (@username)';
                 waitlistStatus.className = 'waitlist-status error';
                 return;
             }
 
-            const btn = waitlistForm.querySelector('.waitlist-btn');
+            // Comment link validation
+            if (!comment || !comment.startsWith('http')) {
+                waitlistStatus.textContent = 'ENTER A VALID COMMENT LINK';
+                waitlistStatus.className = 'waitlist-status error';
+                return;
+            }
 
-            // Optimistic UI — show success instantly, save in background
+            // EVM address validation
+            const evmRegex = /^0x[a-fA-F0-9]{40}$/;
+            if (!evmRegex.test(wallet)) {
+                waitlistStatus.textContent = 'ENTER A VALID EVM WALLET ADDRESS (0x...)';
+                waitlistStatus.className = 'waitlist-status error';
+                return;
+            }
+
+            // Optimistic UI
             waitlistStatus.textContent = "YOU'RE IN! WELCOME TO THE WAITLIST \uD83C\uDF89";
             waitlistStatus.className = 'waitlist-status success';
+            twitterInput.value = '';
+            commentInput.value = '';
             walletInput.value = '';
 
             fetch(WAITLIST_URL, {
                 method: 'POST',
-                body: JSON.stringify({ wallet: wallet })
+                body: JSON.stringify({ twitter: twitter, comment: comment, wallet: wallet })
             })
             .then(r => r.json())
             .then(data => {
-                if (data.success) {
-                    // saved successfully
-                } else {
-                    // Server rejected (duplicate etc.) — correct the optimistic message
+                if (!data.success) {
                     waitlistStatus.textContent = (data.message || 'ERROR').toUpperCase();
                     waitlistStatus.className = 'waitlist-status error';
                 }

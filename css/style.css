@@ -591,6 +591,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .waitlist-form {
     display: flex;
+    flex-direction: column;
     gap: 0;
     border: 3px solid var(--pop-yellow);
     background: var(--bg-secondary);
@@ -606,12 +607,17 @@ img { max-width: 100%; height: auto; display: block; }
     flex: 1;
     background: transparent;
     border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     outline: none;
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 0.9rem;
     padding: 0.9rem 1.2rem;
     letter-spacing: 0.5px;
+}
+
+.waitlist-input:last-of-type {
+    border-bottom: none;
 }
 
 .waitlist-input::placeholder {
