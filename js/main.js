@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==================== WAITLIST ====================
-    const WAITLIST_URL = 'https://script.google.com/macros/s/AKfycbwzsj3GfgoFrrnoXGWts4-v6bem7jgSyjLTGN6bSc7gK3FhXk3m1rBOhOn5ctQxzcqzJA/exec';
+    const WAITLIST_URL = 'https://script.google.com/macros/s/AKfycbx18qzC1QiPI_fnUy0z7hSFWSSBaJ5R7V--bPhs9gUQRnar9NlBJY4mxrHdcEe-ZO9kzA/exec';
     const waitlistForm = document.getElementById('waitlistForm');
     const twitterInput = document.getElementById('twitterInput');
     const commentInput = document.getElementById('commentInput');
