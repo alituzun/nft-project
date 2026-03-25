@@ -7,18 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const splashStartBtn = document.getElementById('splashStartBtn');
     const mainSite = document.getElementById('mainSite');
 
-    // Music toggle button
-    if (splashMusicBtn && splashVideo) {
+    // Music toggle button — plays background MP3
+    const splashAudio = document.getElementById('splashAudio');
+    let musicPlaying = false;
+
+    if (splashMusicBtn && splashAudio) {
+        splashAudio.volume = 0.5;
         splashMusicBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            splashVideo.muted = !splashVideo.muted;
-            splashVideo.volume = 0.5;
             const iconMuted = splashMusicBtn.querySelector('.icon-muted');
             const iconPlaying = splashMusicBtn.querySelector('.icon-playing');
-            if (splashVideo.muted) {
+            if (musicPlaying) {
+                splashAudio.pause();
+                musicPlaying = false;
                 iconMuted.style.display = '';
                 iconPlaying.style.display = 'none';
             } else {
+                splashAudio.play();
+                musicPlaying = true;
                 iconMuted.style.display = 'none';
                 iconPlaying.style.display = '';
             }
