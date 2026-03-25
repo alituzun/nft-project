@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
         updateActiveNav();
+        heroScrollFade();
     });
 
     // ==================== MOBILE MENU ====================
@@ -45,62 +46,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== STAT COUNTER ANIMATION ====================
-    function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number[data-target]');
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000;
-            const start = performance.now();
+    // ==================== HERO SCROLL FADE ====================
+    const heroFadeElements = document.querySelectorAll('[data-scroll-fade]');
 
-            function update(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                counter.textContent = Math.round(target * eased);
-                if (progress < 1) requestAnimationFrame(update);
-            }
-            requestAnimationFrame(update);
+    function heroScrollFade() {
+        const scrollY = window.scrollY;
+        const fadeEnd = window.innerHeight * 0.6;
+        const opacity = Math.max(0, 1 - scrollY / fadeEnd);
+        const translateY = scrollY * 0.3;
+
+        heroFadeElements.forEach(el => {
+            el.style.opacity = opacity;
+            el.style.transform = `translateY(${translateY}px)`;
         });
     }
 
-    // ==================== SCROLL REVEAL ====================
-    const revealElements = document.querySelectorAll('.section-header, .nft-card, .collection-cta');
-    revealElements.forEach(el => el.classList.add('reveal'));
-
-    const observer = new IntersectionObserver((entries) => {
+    // ==================== SCROLL REVEAL (IntersectionObserver) ====================
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                if (entry.target.closest('.hero')) animateCounters();
             }
         });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-    revealElements.forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
+        revealObserver.observe(el);
+    });
 
-    // ==================== PARALLAX ON HERO CARDS ====================
-    const cards = document.querySelectorAll('.hero-image-card');
+    // ==================== PARALLAX FLOATING CARDS ====================
+    const floatingCards = document.querySelectorAll('[data-parallax]');
+
     window.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 2;
         const y = (e.clientY / window.innerHeight - 0.5) * 2;
-        cards.forEach((card, i) => {
-            const depth = (i + 1) * 8;
-            card.style.transform = `translate(${x * depth}px, ${y * depth}px) rotate(${[-5, 3, -2][i]}deg)`;
+
+        floatingCards.forEach(card => {
+            const depth = parseFloat(card.getAttribute('data-parallax')) || 0.1;
+            const moveX = x * depth * 80;
+            const moveY = y * depth * 80;
+            card.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
     });
 
-    // ==================== NFT CARD TILT ====================
-    document.querySelectorAll('[data-tilt]').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const rotateX = ((e.clientY - rect.top) / rect.height - 0.5) * -10;
-            const rotateY = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate(-4px, -4px)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
+    // ==================== PARTICLE SYSTEM ====================
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+        const colors = ['#ffe156', '#ff6ec7', '#00e5ff', '#76ff03', '#ff3d00'];
+        for (let i = 0; i < 50; i++) {
+            const p = document.createElement('span');
+            p.className = 'particle';
+            const size = Math.random() * 4 + 2;
+            p.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${colors[Math.floor(Math.random() * colors.length)]};
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.5 + 0.2};
+                animation: particleFloat ${Math.random() * 6 + 4}s ease-in-out infinite alternate;
+                animation-delay: ${Math.random() * -8}s;
+                pointer-events: none;
+            `;
+            particlesContainer.appendChild(p);
+        }
+    }
+
+    // ==================== STAR FIELD ====================
+    const starsContainer = document.getElementById('starsCanvas');
+    if (starsContainer) {
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('span');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1;
+            star.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: #fff;
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.6 + 0.2};
+                animation: twinkle ${Math.random() * 3 + 2}s ease-in-out infinite alternate;
+                animation-delay: ${Math.random() * -5}s;
+                pointer-events: none;
+            `;
+            starsContainer.appendChild(star);
+        }
+    }
 
     // ==================== SMOOTH SCROLL ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -126,21 +162,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const comment = commentInput.value.trim();
             const wallet = walletInput.value.trim();
 
-            // Twitter validation: must start with @
             if (!twitter || !twitter.startsWith('@') || twitter.length < 2) {
                 waitlistStatus.textContent = 'ENTER A VALID TWITTER HANDLE (@username)';
                 waitlistStatus.className = 'waitlist-status error';
                 return;
             }
 
-            // Comment link validation
             if (!comment || !comment.startsWith('http')) {
                 waitlistStatus.textContent = 'ENTER A VALID COMMENT LINK';
                 waitlistStatus.className = 'waitlist-status error';
                 return;
             }
 
-            // EVM address validation
             const evmRegex = /^0x[a-fA-F0-9]{40}$/;
             if (!evmRegex.test(wallet)) {
                 waitlistStatus.textContent = 'ENTER A VALID EVM WALLET ADDRESS (0x...)';
@@ -148,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Optimistic UI
             waitlistStatus.textContent = "YOU'RE IN! WELCOME TO THE WAITLIST \uD83C\uDF89";
             waitlistStatus.className = 'waitlist-status success';
             twitterInput.value = '';
@@ -172,7 +204,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // Init counters on load
-    animateCounters();
 });
