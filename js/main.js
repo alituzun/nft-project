@@ -1,49 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ==================== SPLASH SCREEN ====================
-    const splashScreen = document.getElementById('splashScreen');
-    const splashVideo = document.getElementById('splashVideo');
-    const splashMusicBtn = document.getElementById('splashMusicBtn');
-    const splashStartBtn = document.getElementById('splashStartBtn');
-    const mainSite = document.getElementById('mainSite');
-
-    // Music toggle button — plays background MP3
-    const splashAudio = document.getElementById('splashAudio');
-    let musicPlaying = false;
-
-    if (splashMusicBtn && splashAudio) {
-        splashAudio.volume = 0.5;
-        splashMusicBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const iconMuted = splashMusicBtn.querySelector('.icon-muted');
-            const iconPlaying = splashMusicBtn.querySelector('.icon-playing');
-            if (musicPlaying) {
-                splashAudio.pause();
-                musicPlaying = false;
-                iconMuted.style.display = '';
-                iconPlaying.style.display = 'none';
-            } else {
-                splashAudio.play();
-                musicPlaying = true;
-                iconMuted.style.display = 'none';
-                iconPlaying.style.display = '';
-            }
-        });
-    }
-
-    // PRESS START button — enter site
-    if (splashStartBtn) {
-        splashStartBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            splashScreen.classList.add('hidden');
-            mainSite.style.display = '';
-            setTimeout(() => {
-                splashScreen.style.display = 'none';
-                if (splashVideo) splashVideo.pause();
-            }, 900);
-        });
-    }
-
     // ==================== NAVBAR SCROLL ====================
     const navbar = document.querySelector('.navbar');
 
